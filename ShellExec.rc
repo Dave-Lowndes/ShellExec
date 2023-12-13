@@ -1,0 +1,331 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 217, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About ShellExec"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,20,20
+    LTEXT           "ShellExec Version 1.5",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) JD Design 1997-2014",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,160,7,50,14,WS_GROUP
+END
+
+IDD_SHELLEXEC_DIALOG DIALOGEX 0, 0, 450, 272
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Test for the ShellExecute(Ex) APIs"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Common &operation verbs are listed. The actual verbs available depend on the associated application, so type whatever you need. Leave empty for null.",IDC_STATIC,7,7,171,24
+    COMBOBOX        IDC_OPERATION,7,33,187,74,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Enter a document or application path and &file name. ShellExecute(Ex) will invoke the application associated with a document.",IDC_STATIC,7,54,171,24
+    EDITTEXT        IDC_FILENAME,7,81,171,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_PICK_FILE,181,81,15,14
+    LTEXT           "Enter any additional command line &parameters here",IDC_STATIC,7,103,171,8
+    EDITTEXT        IDC_PARAMS,7,114,187,14,ES_AUTOHSCROLL
+    LTEXT           "The directory parameter",IDC_STATIC,7,138,170,8
+    EDITTEXT        IDC_DIRECTORY,7,149,171,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_PICK_DIR,181,148,15,14
+    LTEXT           "Select the ""&show"" option to indicate the preferred manner of opening an application's window. Note that applications may ignore this setting.",IDC_STATIC,7,170,171,24
+    COMBOBOX        IDC_SWC,7,197,187,110,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Use API",IDC_STATIC,7,215,171,28
+    CONTROL         "Shell&Execute",IDC_SE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,12,226,57,10
+    CONTROL         "ShellExecuteE&x",IDC_SEEX,"Button",BS_AUTORADIOBUTTON,87,226,65,10
+    DEFPUSHBUTTON   "Execute",IDOK,34,250,50,14,WS_GROUP
+    PUSHBUTTON      "Close",IDCANCEL,100,250,50,14,WS_GROUP
+    GROUPBOX        "ShellExecuteEx Flags",IDC_STATIC,220,7,223,258
+    CONTROL         "SEE_MASK_CLASSKEY",IDC_SEE_MASK_CLASSKEY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,19,87,10
+    CONTROL         "SEE_MASK_CLASSNAME",IDC_SEE_MASK_CLASSNAME,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,32,93,10
+    EDITTEXT        IDC_CLASSKEYNAME,321,22,81,14,ES_AUTOHSCROLL
+    CONTROL         "SEE_MASK_CONNECTNETDRV",IDC_SEE_MASK_CONNECTNETDRV,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,53,112,10
+    CONTROL         "SEE_MASK_DOENVSUBST",IDC_SEE_MASK_DOENVSUBST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,66,97,10
+    CONTROL         "SEE_MASK_FLAG_DDEWAIT",IDC_SEE_MASK_FLAG_DDEWAIT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,79,106,10
+    CONTROL         "SEE_MASK_FLAG_LOG_USAGE",IDC_SEE_MASK_FLAG_LOG_USAGE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,92,114,10
+    CONTROL         "SEE_MASK_FLAG_NO_UI",IDC_SEE_MASK_FLAG_NO_UI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,105,96,10
+    CONTROL         "SEE_MASK_HMONITOR",IDC_SEE_MASK_HMONITOR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,118,91,10
+    CONTROL         "SEE_MASK_HOTKEY",IDC_SEE_MASK_HOTKEY,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,227,131,80,10
+    CONTROL         "SEE_MASK_ICON",IDC_SEE_MASK_ICON,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,227,144,71,10
+    CONTROL         "SEE_MASK_IDLIST",IDC_SEE_MASK_IDLIST,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,227,157,75,10
+    CONTROL         "SEE_MASK_INVOKEIDLIST",IDC_SEE_MASK_INVOKEIDLIST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,170,100,10
+    CONTROL         "SEE_MASK_NOCLOSEPROCESS",IDC_SEE_MASK_NOCLOSEPROCESS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,183,116,10
+    CONTROL         "SEE_MASK_NO_CONSOLE",IDC_SEE_MASK_NO_CONSOLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,196,99,10
+    CONTROL         "SEE_MASK_UNICODE",IDC_SEE_MASK_UNICODE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,227,209,85,10
+    LTEXT           "(uses the monitor this window is on)",IDC_STATIC,325,118,117,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,5,0,0
+ PRODUCTVERSION 1,5,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "ShellExec API Test Application"
+            VALUE "FileVersion", "1, 5, 0, 0"
+            VALUE "InternalName", "ShellExec"
+            VALUE "LegalCopyright", "Copyright (C) JD Design 1997-2014"
+            VALUE "OriginalFilename", "ShellExec.EXE"
+            VALUE "ProductName", "ShellExec Application"
+            VALUE "ProductVersion", "1, 5, 0, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_SHELLEXEC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        VERTGUIDE, 319
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 265
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_SHELLEXEC_DIALOG DLGINIT
+BEGIN
+    IDC_OPERATION, 0x403, 5, 0
+0x706f, 0x6e65, "\000" 
+    IDC_OPERATION, 0x403, 5, 0
+0x6465, 0x7469, "\000" 
+    IDC_OPERATION, 0x403, 6, 0
+0x7270, 0x6e69, 0x0074, 
+    IDC_OPERATION, 0x403, 8, 0
+0x7865, 0x6c70, 0x726f, 0x0065, 
+    IDC_OPERATION, 0x403, 5, 0
+0x6966, 0x646e, "\000" 
+    IDC_OPERATION, 0x403, 11, 0
+0x7270, 0x706f, 0x7265, 0x6974, 0x7365, "\000" 
+    IDC_SWC, 0x403, 8, 0
+0x5753, 0x485f, 0x4449, 0x0045, 
+    IDC_SWC, 0x403, 10, 0
+0x5753, 0x4e5f, 0x524f, 0x414d, 0x004c, 
+    IDC_SWC, 0x403, 17, 0
+0x5753, 0x535f, 0x4f48, 0x4d57, 0x4e49, 0x4d49, 0x5a49, 0x4445, "\000" 
+    IDC_SWC, 0x403, 17, 0
+0x5753, 0x535f, 0x4f48, 0x4d57, 0x5841, 0x4d49, 0x5a49, 0x4445, "\000" 
+    IDC_SWC, 0x403, 18, 0
+0x5753, 0x535f, 0x4f48, 0x4e57, 0x414f, 0x5443, 0x5649, 0x5441, 0x0045, 
+
+    IDC_SWC, 0x403, 8, 0
+0x5753, 0x535f, 0x4f48, 0x0057, 
+    IDC_SWC, 0x403, 12, 0
+0x5753, 0x4d5f, 0x4e49, 0x4d49, 0x5a49, 0x0045, 
+    IDC_SWC, 0x403, 19, 0
+0x5753, 0x535f, 0x4f48, 0x4d57, 0x4e49, 0x4f4e, 0x4341, 0x4954, 0x4556, 
+"\000" 
+    IDC_SWC, 0x403, 10, 0
+0x5753, 0x535f, 0x4f48, 0x4e57, 0x0041, 
+    IDC_SWC, 0x403, 11, 0
+0x5753, 0x525f, 0x5345, 0x4f54, 0x4552, "\000" 
+    IDC_SWC, 0x403, 15, 0
+0x5753, 0x535f, 0x4f48, 0x4457, 0x4645, 0x5541, 0x544c, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About ShellExec..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PINFO_DLG DIALOGEX 0, 0, 251, 46
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Process Information"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Update",IDOK,194,7,50,14
+    PUSHBUTTON      "Close",IDCANCEL,194,24,50,14
+    LTEXT           "hProcess",IDC_STATIC,7,7,30,8
+    LTEXT           "0x88888888",IDC_HPROCESS,85,7,41,8
+    LTEXT           "GetExitCodeProcess",IDC_STATIC,7,25,66,8
+    LTEXT           "0x88888888",IDC_GECP_VALUE,85,26,102,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PINFO_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\ShellExec.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\ShellExec.ico"
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\ShellExec.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
