@@ -52,7 +52,7 @@ void CPInfoDlg::OnBnClickedOk()
 #if _MSC_VER < 1400
 			_itot( ExitCode, &szValue[2], 16 );
 #else
-			_itot_s( ExitCode, &szValue[2], _countof(szValue), 16 );
+			_itot_s( ExitCode, &szValue[2], _countof(szValue)-2, 16 );
 #endif
 			SetDlgItemText( IDC_GECP_VALUE, szValue );
 		}
