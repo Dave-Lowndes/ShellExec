@@ -221,34 +221,36 @@ void CShellExecDlg::OnOK()
 		/* Get the combination of check boxes */
 		DWORD Mask = 0;
 		{
+// I'd named the UI controls the same as the SEE_MASK_ flags, so I can use a macro to generate the table
+#define IDCIT(x) IDC_##x, x
 			struct
 			{
 				int id;
 				DWORD fMask;
 			} static const Flags [] = 
 			{
-				IDC_SEE_MASK_CLASSKEY, SEE_MASK_CLASSKEY
-				, IDC_SEE_MASK_CLASSNAME, SEE_MASK_CLASSNAME
-				, IDC_SEE_MASK_CONNECTNETDRV, SEE_MASK_CONNECTNETDRV
-				, IDC_SEE_MASK_DOENVSUBST, SEE_MASK_DOENVSUBST
-				, IDC_SEE_MASK_FLAG_DDEWAIT, SEE_MASK_FLAG_DDEWAIT
-				, IDC_SEE_MASK_FLAG_LOG_USAGE, SEE_MASK_FLAG_LOG_USAGE
-				, IDC_SEE_MASK_FLAG_NO_UI, SEE_MASK_FLAG_NO_UI
-				, IDC_SEE_MASK_HMONITOR, SEE_MASK_HMONITOR
-				, IDC_SEE_MASK_HOTKEY, SEE_MASK_HOTKEY
-				, IDC_SEE_MASK_ICON, SEE_MASK_ICON
-				, IDC_SEE_MASK_IDLIST, SEE_MASK_IDLIST
-				, IDC_SEE_MASK_INVOKEIDLIST, SEE_MASK_INVOKEIDLIST
-				, IDC_SEE_MASK_NOCLOSEPROCESS, SEE_MASK_NOCLOSEPROCESS
-				, IDC_SEE_MASK_NO_CONSOLE, SEE_MASK_NO_CONSOLE
-				, IDC_SEE_MASK_UNICODE, SEE_MASK_UNICODE
+				IDCIT(SEE_MASK_CLASSKEY)
+				, IDCIT(SEE_MASK_CLASSNAME)
+				, IDCIT(SEE_MASK_CONNECTNETDRV)
+				, IDCIT(SEE_MASK_DOENVSUBST)
+				, IDCIT(SEE_MASK_FLAG_DDEWAIT)
+				, IDCIT(SEE_MASK_FLAG_LOG_USAGE)
+				, IDCIT(SEE_MASK_FLAG_NO_UI)
+				, IDCIT(SEE_MASK_HMONITOR)
+				, IDCIT(SEE_MASK_HOTKEY)
+				, IDCIT(SEE_MASK_ICON)
+				, IDCIT(SEE_MASK_IDLIST)
+				, IDCIT(SEE_MASK_INVOKEIDLIST)
+				, IDCIT(SEE_MASK_NOCLOSEPROCESS)
+				, IDCIT(SEE_MASK_NO_CONSOLE)
+				, IDCIT(SEE_MASK_UNICODE)
 			};
 
-			for ( int indx = 0; indx < _countof( Flags ); indx++ )
+			for ( const auto & item : Flags )
 			{
-				if ( IsDlgButtonChecked( Flags[indx].id ) == BST_CHECKED )
+				if ( IsDlgButtonChecked( item.id ) == BST_CHECKED )
 				{
-					Mask |= Flags[indx].fMask;
+					Mask |= item.fMask;
 				}
 			}
 		}
@@ -267,6 +269,8 @@ void CShellExecDlg::OnOK()
 		// This flag is needed to invoke the "properties" verb, as there's no association in the registry
 		sei.fMask  = Mask;	//SEE_MASK_INVOKEIDLIST /*| SEE_MASK_FLAG_DDEWAIT | SEE_MASK_NOCLOSEPROCESS*/;
 
+		// To override the application that opens the file, use the class name.
+		// For example, to use WordPad to open a .xls file, use the class name "textfile".
 		if ( ( Mask & SEE_MASK_CLASSKEY ) == SEE_MASK_CLASSKEY )
 		{
 			if ( ERROR_SUCCESS == RegOpenKeyEx( HKEY_CLASSES_ROOT, m_strClassKeyName, 0, KEY_READ, &sei.hkeyClass ) )
@@ -305,7 +309,7 @@ void CShellExecDlg::OnOK()
 			LocalFree( lpMessageBuffer );
 		}
 
-		if ( Mask & SEE_MASK_CLASSKEY )
+		if ( sei.hkeyClass )
 		{
 			RegCloseKey( sei.hkeyClass );
 		}
